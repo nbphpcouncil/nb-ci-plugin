@@ -46,19 +46,19 @@ import java.io.File;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-import org.netbeans.modules.php.api.phpmodule.BadgeIcon;
+import org.netbeans.modules.php.api.framework.BadgeIcon;
 import org.netbeans.modules.php.api.phpmodule.PhpModule;
 import org.netbeans.modules.php.api.phpmodule.PhpModuleProperties;
 import org.netbeans.modules.php.ci.editor.CIEditorExtender;
 import org.netbeans.modules.php.ci.preferences.CIPreferences;
 import org.netbeans.modules.php.ci.ui.customizer.CIPhpModuleCustomizerExtender;
-import org.netbeans.modules.php.spi.commands.FrameworkCommandSupport;
 import org.netbeans.modules.php.spi.editor.EditorExtender;
-import org.netbeans.modules.php.spi.phpmodule.PhpFrameworkProvider;
-import org.netbeans.modules.php.spi.phpmodule.PhpModuleActionsExtender;
-import org.netbeans.modules.php.spi.phpmodule.PhpModuleCustomizerExtender;
-import org.netbeans.modules.php.spi.phpmodule.PhpModuleExtender;
-import org.netbeans.modules.php.spi.phpmodule.PhpModuleIgnoredFilesExtender;
+import org.netbeans.modules.php.spi.framework.PhpFrameworkProvider;
+import org.netbeans.modules.php.spi.framework.PhpModuleActionsExtender;
+import org.netbeans.modules.php.spi.framework.PhpModuleCustomizerExtender;
+import org.netbeans.modules.php.spi.framework.PhpModuleExtender;
+import org.netbeans.modules.php.spi.framework.PhpModuleIgnoredFilesExtender;
+import org.netbeans.modules.php.spi.framework.commands.FrameworkCommandSupport;
 import org.openide.filesystems.FileObject;
 import org.openide.filesystems.FileUtil;
 import org.openide.util.ImageUtilities;
@@ -99,9 +99,12 @@ public class CIPhpFrameworkProvider extends PhpFrameworkProvider {
         return null;
     }
 
+    @NbBundle.Messages({
+        "LBL_FrameworkName=CodeIgniter PHP Web Framework",
+        "LBL_FrameworkDescription=CodeIgniter PHP Web Framework"
+    })
     public CIPhpFrameworkProvider() {
-        super(NbBundle.getMessage(CIPhpFrameworkProvider.class, "LBL_FrameworkName"),
-                NbBundle.getMessage(CIPhpFrameworkProvider.class, "LBL_FrameworkDescription"));
+        super("CodeIgniter PHP Web Framework", Bundle.LBL_FrameworkName(), Bundle.LBL_FrameworkDescription()); // NOI18N
         badgeIcon = new BadgeIcon(ImageUtilities.loadImage(ICON_PATH), CIPhpFrameworkProvider.class.getResource("/" + ICON_PATH)); // NOI18N
     }
 

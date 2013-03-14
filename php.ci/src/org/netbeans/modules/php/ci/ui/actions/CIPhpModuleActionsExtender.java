@@ -44,7 +44,7 @@ package org.netbeans.modules.php.ci.ui.actions;
 import java.util.Arrays;
 import java.util.List;
 import javax.swing.Action;
-import org.netbeans.modules.php.spi.phpmodule.PhpModuleActionsExtender;
+import org.netbeans.modules.php.spi.framework.PhpModuleActionsExtender;
 import org.openide.util.NbBundle;
 
 /**

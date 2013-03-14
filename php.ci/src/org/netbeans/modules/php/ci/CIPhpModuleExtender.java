@@ -52,18 +52,16 @@ import java.util.logging.Logger;
 import java.util.zip.ZipEntry;
 import javax.swing.JComponent;
 import javax.swing.event.ChangeListener;
-import org.netbeans.api.project.Project;
-import org.netbeans.modules.php.api.phpmodule.PhpInterpreter;
+import org.netbeans.modules.php.api.executable.InvalidPhpExecutableException;
+import org.netbeans.modules.php.api.executable.PhpInterpreter;
 import org.netbeans.modules.php.api.phpmodule.PhpModule;
-import org.netbeans.modules.php.api.phpmodule.PhpProgram.InvalidPhpProgramException;
 import org.netbeans.modules.php.ci.preferences.CIPreferences;
 import org.netbeans.modules.php.ci.support.CIZipInflater;
 import org.netbeans.modules.php.ci.support.CIZipInflater.UnZipFilter;
-import org.netbeans.modules.php.ci.support.PhpProjectSupport;
 import org.netbeans.modules.php.ci.ui.wizards.NewProjectConfigurationPanel;
-import org.netbeans.modules.php.spi.phpmodule.PhpModuleExtender;
+import org.netbeans.modules.php.spi.framework.PhpModuleExtender;
+import org.netbeans.modules.php.spi.framework.PhpModuleExtender.ExtendingException;
 import org.openide.filesystems.FileObject;
-import org.openide.filesystems.FileUtil;
 import org.openide.util.Exceptions;
 import org.openide.util.HelpCtx;
 import org.openide.util.NbBundle;
@@ -105,21 +103,21 @@ public class CIPhpModuleExtender extends PhpModuleExtender {
     @Override
     public String getErrorMessage() {
         String error = null;
-        
+
         try {
             PhpInterpreter.getDefault();
-        } catch (InvalidPhpProgramException ex) {
+        } catch (InvalidPhpExecutableException ex) {
             error = ex.getLocalizedMessage();
         }
-        
-        if(error == null) {
+
+        if (error == null) {
             String message = getPanel().getErrorMessage();
-            
-            if(message != null && message.trim().length() > 0) {
+
+            if (message != null && message.trim().length() > 0) {
                 error = getMessage("MSG_CannotExtend", message); // NOI18N
             }
         }
-        
+
         return error;
     }
 
@@ -155,10 +153,10 @@ public class CIPhpModuleExtender extends PhpModuleExtender {
                 files.add(index);
             }
         }
-        
+
         CISupport.generateAutoCompletionFile(pm);
         CIPreferences.setEnabled(pm, true);
-        
+
         return files;
     }
 
@@ -183,7 +181,7 @@ public class CIPhpModuleExtender extends PhpModuleExtender {
 
         return filters;
     }
-    
+
     private String getMessage(String resourceName, Object... parameters) {
         return NbBundle.getMessage(CIPhpModuleExtender.class, resourceName, parameters);
     }

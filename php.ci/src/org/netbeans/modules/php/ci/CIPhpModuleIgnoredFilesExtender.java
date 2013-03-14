@@ -45,7 +45,7 @@ import java.io.File;
 import java.util.Collections;
 import java.util.Set;
 import org.netbeans.modules.php.api.phpmodule.PhpModule;
-import org.netbeans.modules.php.spi.phpmodule.PhpModuleIgnoredFilesExtender;
+import org.netbeans.modules.php.spi.framework.PhpModuleIgnoredFilesExtender;
 import org.openide.filesystems.FileObject;
 import org.openide.filesystems.FileUtil;
 
@@ -74,8 +74,6 @@ public class CIPhpModuleIgnoredFilesExtender extends PhpModuleIgnoredFilesExtend
 
     @Override
     public Set<File> getIgnoredFiles() {
-//        boolean cacheIgnored = SymfonyPhpModuleCustomizerExtender.isCacheDirectoryIgnored(phpModule);
-//        return cacheIgnored ? Collections.singleton(cache) : Collections.<File>emptySet();
         return Collections.singleton(cache);
     }
     
