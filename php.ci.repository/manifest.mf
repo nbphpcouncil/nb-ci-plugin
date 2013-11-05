@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
-OpenIDE-Module: org.netbeans.modules.php.ci.repository/0
-OpenIDE-Module-Layer: org/netbeans/modules/php/ci/repository/resources/layer.xml
-OpenIDE-Module-Localizing-Bundle: org/netbeans/modules/php/ci/repository/Bundle.properties
-OpenIDE-Module-Specification-Version: 0.2.1
+OpenIDE-Module: org.nbphpcouncil.modules.php.ci.repository/0
+OpenIDE-Module-Implementation-Version: 0
+OpenIDE-Module-Layer: org/nbphpcouncil/modules/php/ci/repository/resources/layer.xml
+OpenIDE-Module-Localizing-Bundle: org/nbphpcouncil/modules/php/ci/repository/Bundle.properties
 

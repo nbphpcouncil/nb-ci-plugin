@@ -2,3 +2,5 @@
 /build/
 /php.ci.repository/build/
 /php.ci/build/
+/php.ci/nbproject/private/
+/php.ci.repository/nbproject/private/

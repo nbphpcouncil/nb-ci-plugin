@@ -2,7 +2,7 @@
 <!-- You may freely edit this file. See harness/README in the NetBeans platform -->
 <!-- for some information on what you could do (e.g. targets to override). -->
 <!-- If you delete this file and reopen the project it will be recreated. -->
-<project name="org.netbeans.modules.php.ci.repository" default="netbeans" basedir=".">
-    <description>Builds, tests, and runs the project org.netbeans.modules.php.ci.repository.</description>
+<project name="org.nbphpcouncil.modules.php.ci.repository" default="netbeans" basedir=".">
+    <description>Builds, tests, and runs the project org.nbphpcouncil.modules.php.ci.repository.</description>
     <import file="nbproject/build-impl.xml"/>
 </project>

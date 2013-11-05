@@ -3,7 +3,7 @@
     <type>org.netbeans.modules.apisupport.project</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/nb-module-project/3">
-            <code-name-base>org.netbeans.modules.php.ci</code-name-base>
+            <code-name-base>org.nbphpcouncil.modules.php.ci</code-name-base>
             <suite-component/>
             <module-dependencies>
                 <dependency>
@@ -13,6 +13,15 @@
                     <run-dependency>
                         <release-version>1</release-version>
                         <specification-version>1.16.1</specification-version>
+                    </run-dependency>
+                </dependency>
+                <dependency>
+                    <code-name-base>org.nbphpcouncil.modules.php.ci.repository</code-name-base>
+                    <build-prerequisite/>
+                    <compile-dependency/>
+                    <run-dependency>
+                        <release-version>0-1</release-version>
+                        <specification-version>0.3.0</specification-version>
                     </run-dependency>
                 </dependency>
                 <dependency>
@@ -75,15 +84,6 @@
                     <compile-dependency/>
                     <run-dependency>
                         <implementation-version/>
-                    </run-dependency>
-                </dependency>
-                <dependency>
-                    <code-name-base>org.netbeans.modules.php.ci.repository</code-name-base>
-                    <build-prerequisite/>
-                    <compile-dependency/>
-                    <run-dependency>
-                        <release-version>0-1</release-version>
-                        <specification-version>0.2.1</specification-version>
                     </run-dependency>
                 </dependency>
                 <dependency>
