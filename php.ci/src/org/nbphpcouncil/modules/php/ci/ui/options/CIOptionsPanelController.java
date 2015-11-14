@@ -45,7 +45,6 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import javax.swing.JComponent;
 import org.netbeans.modules.php.api.util.UiUtils;
-import org.nbphpcouncil.modules.php.ci.CIPhpFramework;
 import org.netbeans.spi.options.OptionsPanelController;
 import org.openide.util.HelpCtx;
 import org.openide.util.Lookup;
@@ -54,14 +53,16 @@ import org.openide.util.Lookup;
  *
  * @author Junji Takakura
  */
-@OptionsPanelController.SubRegistration(location = UiUtils.OPTIONS_PATH,
-id = CIPhpFramework.OPTIONS_SUB_PATH,
-position = 500,
-displayName = "#AdvancedOption_DisplayName_CI",
-keywords = "#AdvancedOption_Keywords_CI",
-keywordsCategory = "org-nbphpcouncil-modules-php-project-ui-options-PHPOptionsCategory/CI")
+@UiUtils.PhpOptionsPanelRegistration(
+        id = CIOptionsPanelController.ID,
+        displayName = "#AdvancedOption_DisplayName_CI",
+        position = 1100,
+        keywords = "#AdvancedOption_Keywords_CI",
+        keywordsCategory = "org-nbphpcouncil-modules-php-project-ui-options-PHPOptionsCategory/CI"
+)
 public final class CIOptionsPanelController extends OptionsPanelController {
 
+    static final String ID = "CodeIgniter"; // NOI18N
     private CIOptionsPanel panel;
     private final PropertyChangeSupport pcs = new PropertyChangeSupport(this);
     private boolean changed;
