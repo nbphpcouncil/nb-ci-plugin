@@ -128,15 +128,15 @@ public class CIPhpFrameworkProvider extends PhpFrameworkProvider {
     public PhpModuleProperties getPhpModuleProperties(PhpModule pm) {
         FileObject sourceDirectory = pm.getSourceDirectory();
         PhpModuleProperties properties = new PhpModuleProperties();
+        if (sourceDirectory != null) {
+            FileObject application = sourceDirectory.getFileObject(CIPhpFramework.DIRECTORY_APPLICATION);
 
-        FileObject application = sourceDirectory.getFileObject(CIPhpFramework.DIRECTORY_APPLICATION); // NOI18N
-
-        if (application != null) {
-            properties = properties.setWebRoot(application);
+            if (application != null) {
+                properties = properties.setWebRoot(application);
+            }
         }
 
         // TODO
-
         return properties;
     }
 
