@@ -42,10 +42,6 @@
 package org.nbphpcouncil.modules.php.ci;
 
 import org.nbphpcouncil.modules.php.ci.ui.actions.CIPhpModuleActionsExtender;
-import java.io.File;
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
 import org.nbphpcouncil.modules.php.ci.editor.CIEditorExtender;
 import org.nbphpcouncil.modules.php.ci.preferences.CIPreferences;
 import org.nbphpcouncil.modules.php.ci.ui.customizer.CIPhpModuleCustomizerExtender;
@@ -59,8 +55,8 @@ import org.netbeans.modules.php.spi.framework.PhpModuleCustomizerExtender;
 import org.netbeans.modules.php.spi.framework.PhpModuleExtender;
 import org.netbeans.modules.php.spi.framework.PhpModuleIgnoredFilesExtender;
 import org.netbeans.modules.php.spi.framework.commands.FrameworkCommandSupport;
+import org.netbeans.modules.php.spi.phpmodule.ImportantFilesImplementation;
 import org.openide.filesystems.FileObject;
-import org.openide.filesystems.FileUtil;
 import org.openide.util.ImageUtilities;
 import org.openide.util.NbBundle;
 
@@ -119,22 +115,8 @@ public class CIPhpFrameworkProvider extends PhpFrameworkProvider {
     }
 
     @Override
-    public File[] getConfigurationFiles(PhpModule pm) {
-        List<File> files = new LinkedList<File>();
-
-        FileObject appConfig = pm.getSourceDirectory().getFileObject(CIPhpFramework.getApplicationConfigDirectoryPath()); // NOI18N
-
-        if (appConfig != null) {
-            for (FileObject child : appConfig.getChildren()) {
-                if (child.isData()) {
-                    files.add(FileUtil.toFile(child));
-                }
-            }
-
-            Collections.sort(files);
-        }
-
-        return files.toArray(new File[files.size()]);
+    public ImportantFilesImplementation getConfigurationFiles2(PhpModule phpModule) {
+        return new ConfigurationFiles(phpModule);
     }
 
     @Override
