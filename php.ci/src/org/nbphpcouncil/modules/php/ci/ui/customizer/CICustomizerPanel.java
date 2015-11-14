@@ -139,6 +139,14 @@ public class CICustomizerPanel extends javax.swing.JPanel {
         customLibraryPathsModel.addElement(path);
     }
 
+    public String getVersion() {
+        return (String) versionComboBox.getSelectedItem();
+    }
+
+    public void setVersion(String version) {
+        versionComboBox.setSelectedItem(version);
+    }
+
     public void addChangeListener(ChangeListener listener) {
         changeSupport.addChangeListener(listener);
     }
@@ -174,6 +182,9 @@ public class CICustomizerPanel extends javax.swing.JPanel {
         addFolderButton = new javax.swing.JButton();
         removeButton = new javax.swing.JButton();
         customLibraryPathsInfoLabel = new javax.swing.JLabel();
+        versionLabel = new javax.swing.JLabel();
+        versionComboBox = new javax.swing.JComboBox<String>();
+        versionInfoLabel = new javax.swing.JLabel();
 
         org.openide.awt.Mnemonics.setLocalizedText(enabledCheckBox, org.openide.util.NbBundle.getMessage(CICustomizerPanel.class, "CICustomizerPanel.enabledCheckBox.text")); // NOI18N
 
@@ -199,6 +210,12 @@ public class CICustomizerPanel extends javax.swing.JPanel {
 
         org.openide.awt.Mnemonics.setLocalizedText(customLibraryPathsInfoLabel, org.openide.util.NbBundle.getMessage(CICustomizerPanel.class, "CICustomizerPanel.customLibraryPathsInfoLabel.text")); // NOI18N
 
+        org.openide.awt.Mnemonics.setLocalizedText(versionLabel, org.openide.util.NbBundle.getMessage(CICustomizerPanel.class, "CICustomizerPanel.versionLabel.text")); // NOI18N
+
+        versionComboBox.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] { "2", "3" }));
+
+        org.openide.awt.Mnemonics.setLocalizedText(versionInfoLabel, org.openide.util.NbBundle.getMessage(CICustomizerPanel.class, "CICustomizerPanel.versionInfoLabel.text")); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -219,7 +236,13 @@ public class CICustomizerPanel extends javax.swing.JPanel {
                                 .addGap(21, 21, 21)
                                 .addComponent(enabledInfoLabel))
                             .addComponent(customLibraryPathsLabel)
-                            .addComponent(customLibraryPathsInfoLabel))
+                            .addComponent(customLibraryPathsInfoLabel)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(versionLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(versionComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(versionInfoLabel)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -240,6 +263,11 @@ public class CICustomizerPanel extends javax.swing.JPanel {
                         .addComponent(removeButton)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(customLibraryPathsInfoLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(versionLabel)
+                    .addComponent(versionComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(versionInfoLabel))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -285,5 +313,8 @@ public class CICustomizerPanel extends javax.swing.JPanel {
     private javax.swing.JCheckBox enabledCheckBox;
     private javax.swing.JLabel enabledInfoLabel;
     private javax.swing.JButton removeButton;
+    private javax.swing.JComboBox<String> versionComboBox;
+    private javax.swing.JLabel versionInfoLabel;
+    private javax.swing.JLabel versionLabel;
     // End of variables declaration//GEN-END:variables
 }

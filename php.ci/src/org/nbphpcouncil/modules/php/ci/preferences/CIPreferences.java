@@ -44,6 +44,7 @@ package org.nbphpcouncil.modules.php.ci.preferences;
 import java.util.prefs.Preferences;
 import org.netbeans.modules.php.api.phpmodule.PhpModule;
 import org.nbphpcouncil.modules.php.ci.CIPhpFrameworkProvider;
+import org.netbeans.modules.php.api.util.StringUtils;
 
 /**
  *
@@ -54,6 +55,7 @@ public class CIPreferences {
     private static final String ENABLED = "enabled"; // NOI18N
     private static final String PATH_SEPARATOR = ";";
     private static final String CUSTOM_LIBRARY_PATHS = "custom_library_paths"; // NOI18N
+    private static final String VERSION = "version"; // NOI18N
 
     private CIPreferences() {
     }
@@ -91,6 +93,17 @@ public class CIPreferences {
         }
 
         getPreferences(module).put(CUSTOM_LIBRARY_PATHS, sb.toString());
+    }
+
+    public static String getVersion(PhpModule phpModule) {
+        return getPreferences(phpModule).get(VERSION, "2"); // NOI18N
+    }
+
+    public static void setVersion(PhpModule phpModule, String version) {
+        if (StringUtils.isEmpty(version)) {
+            version = "2"; // NOI18N
+        }
+        getPreferences(phpModule).put(VERSION, version);
     }
 
     private static Preferences getPreferences(PhpModule module) {

@@ -1,7 +1,11 @@
 <?php
 
 /**
+<#if ciVersion?? && ciVersion == "3">
+ * @property CI_DB_query_builder $db
+<#else>
  * @property CI_DB_active_record $db
+</#if>
  * @property CI_DB_forge $dbforge
  * @property CI_Benchmark $benchmark
  * @property CI_Calendar $calendar
