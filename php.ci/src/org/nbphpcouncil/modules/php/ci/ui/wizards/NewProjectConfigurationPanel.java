@@ -79,7 +79,7 @@ public class NewProjectConfigurationPanel extends javax.swing.JPanel {
             public void stateChanged(ChangeEvent e) {
                 initFileComboBoxes();
                 cs.fireChange();
-                
+
             }
         });
     }
@@ -132,48 +132,50 @@ public class NewProjectConfigurationPanel extends javax.swing.JPanel {
         languagePackComboBox.setModel(languagePackComboBoxModel);
         languagePackComboBox.setVisible(false);
 
-        org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(this);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(layout.createSequentialGroup()
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(languagePackLabel)
-                    .add(baseFileLabel))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(languagePackComboBox, 0, 385, Short.MAX_VALUE)
-                    .add(baseFileComboBox, 0, 385, Short.MAX_VALUE))
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(generateProjectLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 324, Short.MAX_VALUE)
+                .addComponent(optionsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(languagePackLabel)
+                            .addComponent(baseFileLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(languagePackComboBox, 0, 385, Short.MAX_VALUE)
+                            .addComponent(baseFileComboBox, 0, 385, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(excludingUserGuideFilesLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(excludingUserGuideFilesCheckBox)
+                        .addGap(0, 282, Short.MAX_VALUE)))
                 .addContainerGap())
-            .add(layout.createSequentialGroup()
-                .add(excludingUserGuideFilesLabel)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(excludingUserGuideFilesCheckBox)
-                .addContainerGap(294, Short.MAX_VALUE))
-            .add(layout.createSequentialGroup()
-                .add(generateProjectLabel)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 324, Short.MAX_VALUE)
-                .add(optionsLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(layout.createSequentialGroup()
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(generateProjectLabel)
-                    .add(optionsLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(baseFileLabel)
-                    .add(baseFileComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                    .add(excludingUserGuideFilesLabel)
-                    .add(excludingUserGuideFilesCheckBox))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(languagePackLabel)
-                    .add(languagePackComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(generateProjectLabel)
+                    .addComponent(optionsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(baseFileLabel)
+                    .addComponent(baseFileComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(excludingUserGuideFilesLabel)
+                    .addComponent(excludingUserGuideFilesCheckBox))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(languagePackLabel)
+                    .addComponent(languagePackComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -231,7 +233,7 @@ public class NewProjectConfigurationPanel extends javax.swing.JPanel {
     public boolean isExcludingUserGuideFilesSelected() {
         return excludingUserGuideFilesCheckBox.isSelected();
     }
-    
+
     private void initFileComboBoxes() {
         initBaseFileComboBox();
         initLanguagePackFileComboBox();
@@ -239,24 +241,24 @@ public class NewProjectConfigurationPanel extends javax.swing.JPanel {
 
     private void initBaseFileComboBox() {
         List<CIEntry> entries = CIOptions.getInstance().getEntries(CIEntry.Type.BASE);
-        
+
         baseFileComboBoxModel.removeAllElements();
-        
+
         for (CIEntry entry : entries) {
             baseFileComboBoxModel.addElement(entry);
         }
     }
-    
+
     private void initLanguagePackFileComboBox() {
         List<CIEntry> entries = CIOptions.getInstance().getEntries(CIEntry.Type.LANGUAGE_PACK);
-        
+
         languagePackComboBoxModel.removeAllElements();
-        
+
         for (CIEntry entry : entries) {
             languagePackComboBoxModel.addElement(entry);
         }
     }
-    
+
     private String getMessage(String resourceName, Object... parameters) {
         return NbBundle.getMessage(NewProjectConfigurationPanel.class, resourceName, parameters);
     }

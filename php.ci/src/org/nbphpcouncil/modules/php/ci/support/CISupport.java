@@ -75,7 +75,8 @@ public class CISupport {
 
             if (autoCompleteTemplateFile != null) {
                 Map<String, Object> parameters = new HashMap<String, Object>();
-                parameters.put("annotations", getClassPropertyAnnotations(pm));
+                parameters.put("annotations", getClassPropertyAnnotations(pm)); // NOI18N
+                parameters.put("ciVersion", CIPreferences.getVersion(pm)); // NOI18N
 
                 try {
                     FileObject autoCompleteDirectory = getAutoCompleteDirectory(nbProjectDirectory);

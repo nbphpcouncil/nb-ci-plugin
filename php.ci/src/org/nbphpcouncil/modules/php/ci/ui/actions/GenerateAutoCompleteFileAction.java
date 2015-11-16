@@ -44,7 +44,6 @@ package org.nbphpcouncil.modules.php.ci.ui.actions;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import org.netbeans.api.progress.ProgressHandle;
-import org.netbeans.api.progress.ProgressHandleFactory;
 import org.netbeans.modules.php.api.phpmodule.PhpModule;
 import org.nbphpcouncil.modules.php.ci.support.CISupport;
 import org.netbeans.modules.php.spi.framework.actions.BaseAction;
@@ -97,7 +96,7 @@ public class GenerateAutoCompleteFileAction extends BaseAction {
         RUNNABLES.add(new Runnable() {
             @Override
             public void run() {
-                ProgressHandle handle = ProgressHandleFactory.createHandle(Bundle.LBL_CreateAutoCompleteFile_ProgressBar());
+                ProgressHandle handle = ProgressHandle.createHandle(Bundle.LBL_CreateAutoCompleteFile_ProgressBar());
                 handle.start();
                 try {
                     LifecycleManager.getDefault().saveAll();

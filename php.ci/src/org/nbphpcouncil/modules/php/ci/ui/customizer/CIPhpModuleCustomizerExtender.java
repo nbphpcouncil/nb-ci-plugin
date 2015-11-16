@@ -68,6 +68,7 @@ public class CIPhpModuleCustomizerExtender extends PhpModuleCustomizerExtender {
         component = new CICustomizerPanel(pm.getSourceDirectory());
         component.setSupportEnabled(CIPreferences.isEnabled(pm));
         component.setCustomLibraryPaths(CIPreferences.getCustomLibraryPaths(pm));
+        component.setVersion(CIPreferences.getVersion(pm));
     }
 
     @NbBundle.Messages("CIPhpModuleCustomizerExtender.CodeIgniter=CodeIgniter")
@@ -113,6 +114,7 @@ public class CIPhpModuleCustomizerExtender extends PhpModuleCustomizerExtender {
         EnumSet<Change> changes = EnumSet.noneOf(Change.class);
         CICustomizerPanel panel = getPanel();
 
+        // enabled
         boolean currentEnabled = CIPreferences.isEnabled(pm);
         boolean newEnabled = panel.isSupportEnabled();
 
@@ -121,6 +123,7 @@ public class CIPhpModuleCustomizerExtender extends PhpModuleCustomizerExtender {
             changes.add(Change.FRAMEWORK_CHANGE);
         }
 
+        // paths
         String[] currentPaths = CIPreferences.getCustomLibraryPaths(pm);
         String[] newPaths = panel.getCustomLibraryPaths();
 
@@ -128,7 +131,14 @@ public class CIPhpModuleCustomizerExtender extends PhpModuleCustomizerExtender {
             CIPreferences.setCustomLibraryPaths(pm, newPaths);
             changes.add(Change.FRAMEWORK_CHANGE);
         }
-        
+
+        // version
+        String currentVersion = CIPreferences.getVersion(pm);
+        String newVersion = panel.getVersion();
+        if (!newVersion.equals(currentVersion)) {
+            CIPreferences.setVersion(pm, newVersion);
+        }
+
         if(changes.isEmpty()) {
             return null;
         } else {
@@ -137,7 +147,7 @@ public class CIPhpModuleCustomizerExtender extends PhpModuleCustomizerExtender {
             } else {
                 CISupport.removeAutoCompletionFile(pm);
             }
-            
+
             return changes;
         }
     }
@@ -162,7 +172,7 @@ public class CIPhpModuleCustomizerExtender extends PhpModuleCustomizerExtender {
 
         for (String path : paths) {
             File f = new File(path);
-            
+
             if(!f.isAbsolute()) {
                 f = new File(parentPath, path);
             }
